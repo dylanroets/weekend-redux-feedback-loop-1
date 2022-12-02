@@ -1,15 +1,17 @@
 //will need useDispatch and useState
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 //want feeling state to be captured the onChange input
 //want onClick function to:
 //INCLUDE INPUT VALIDATION
 //handle the dispatch(type='MAKE_COMMENT', payload: {feeling: value})
 //THEN link to next page (supported)
-function Feeling({ question, page }) {
+function Feeling({ question, page, nextpage }) {
   console.log(question);
   console.log(page);
-
+  console.log(nextpage);
+  let history = useHistory();
   let dispatch = useDispatch();
   const runInput = () => {
     let value = document.getElementById('input-selector').value;
@@ -22,6 +24,7 @@ function Feeling({ question, page }) {
         payload: { page: page, value: value },
       });
     }
+    history.push(nextpage);
   };
   return (
     <div>
