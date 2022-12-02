@@ -3,6 +3,9 @@ import axios from 'axios';
 import './App.css';
 import { HashRouter as Router, Route } from 'react-router-dom';
 
+import Home from '../Home/Home.jsx';
+import Feeling from '../Feeling/Feeling.jsx';
+
 function App() {
   return (
     <div className="App">
@@ -15,7 +18,7 @@ function App() {
           <Home />
         </Route>
         <Route exact path="/Feeling">
-          <Feeling />
+          <Feeling question="How are you feeling today?" page="Feeling?" />
         </Route>
       </Router>
     </div>

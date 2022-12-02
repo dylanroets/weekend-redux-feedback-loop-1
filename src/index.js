@@ -9,7 +9,14 @@ import { Provider } from 'react-redux';
 
 //TODO: Make a reducer called 'MAKE_COMMENT', starts as {}
 const comment = (state = {}, action) => {
-  console.log('in comment reducer');
+  console.log('in comment reducer:', action.payload);
+  if (action.type === 'MAKE_COMMENT') {
+    if (action.payload.page === 'Feeling?') {
+      let newState = { ...state, feeling: action.payload.value };
+      console.log(newState);
+      return newState;
+    }
+  }
   //Idea is each action is going to add another property to the object so can be controlled by one
   return state;
 };
