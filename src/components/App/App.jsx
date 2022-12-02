@@ -28,6 +28,14 @@ function App() {
           <Feeling
             question="How well are you being supported?"
             page="Supported?"
+            nextpage="/Understanding"
+          />
+        </Route>
+        <Route exact path="/Understanding">
+          <Feeling
+            question="How well are you understanding the content?"
+            page="Understanding?"
+            nextpage="/Comments"
           />
         </Route>
       </Router>

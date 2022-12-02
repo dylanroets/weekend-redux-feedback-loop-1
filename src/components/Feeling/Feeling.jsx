@@ -8,14 +8,17 @@ import { useHistory } from 'react-router-dom';
 //handle the dispatch(type='MAKE_COMMENT', payload: {feeling: value})
 //THEN link to next page (supported)
 function Feeling({ question, page, nextpage }) {
-  console.log(question);
-  console.log(page);
-  console.log(nextpage);
+  //checking incoming props
+  console.log('Question:', question, 'page:', page, 'nextpage:', nextpage);
+
+  //invoking react and redux
   let history = useHistory();
   let dispatch = useDispatch();
+
+  //function to run on click of next
   const runInput = () => {
     let value = document.getElementById('input-selector').value;
-    console.log(value);
+    console.log('Answer value:', value);
     if (value === '') {
       alert('You must enter an answer.');
     } else {
@@ -23,18 +26,14 @@ function Feeling({ question, page, nextpage }) {
         type: 'MAKE_COMMENT',
         payload: { page: page, value: value },
       });
+      history.push(nextpage);
     }
-    history.push(nextpage);
   };
   return (
     <div>
       <h1>{question} </h1>
       <label htmlFor="input-selector">{page}</label>
-      <select
-        onChange={console.log('changed selection')}
-        name="feedback"
-        id="input-selector"
-      >
+      <select name="feedback" id="input-selector">
         <option value="">--Select an option--</option>
         <option value="5">5</option>
         <option value="4">4</option>
@@ -45,7 +44,6 @@ function Feeling({ question, page, nextpage }) {
       <button onClick={runInput}>Next</button>
     </div>
   );
-  // TODO: return input and Next button
 }
 
 export default Feeling;

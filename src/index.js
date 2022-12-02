@@ -9,10 +9,11 @@ import { Provider } from 'react-redux';
 
 //TODO: Make a reducer called 'MAKE_COMMENT', starts as {}
 const comment = (state = {}, action) => {
-  console.log('in comment reducer:', action.payload);
+  //console.log('in comment reducer:', action.payload);
   if (action.type === 'MAKE_COMMENT') {
     if (action.payload.page === 'Feeling?') {
       let newState = { ...state, feeling: action.payload.value };
+      console.log(state);
       console.log(newState);
       return newState;
     }
