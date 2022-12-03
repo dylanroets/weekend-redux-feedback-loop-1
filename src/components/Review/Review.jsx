@@ -7,10 +7,16 @@ function Review() {
   console.log('selecting:', reduxStore);
   console.log(reduxStore.Comments);
 
+  let dataToPost = reduxStore;
+
   //onClick Function:
   //POST request, '/Feedback', data: {feeling: , understanding: , supported: , comments: , flagged: }
   const postData = () => {
     console.log('Posting data');
+    axios
+      .post('/Feedback', { data: reduxStore })
+      .then()
+      .catch((error) => alert(error));
   };
   //Alert for completed entry
   //Return link to homepage
