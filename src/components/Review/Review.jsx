@@ -15,7 +15,7 @@ function Review() {
     console.log('Posting data');
     axios
       .post('/Feedback', { data: reduxStore })
-      .then()
+      .then(console.log('Data Posted'))
       .catch((error) => alert(error));
   };
   //Alert for completed entry
