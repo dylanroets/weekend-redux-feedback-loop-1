@@ -6,6 +6,7 @@ import { HashRouter as Router, Route } from 'react-router-dom';
 import Home from '../Home/Home.jsx';
 import Feeling from '../Questions/Questions.jsx';
 import Review from '../Review/Review.jsx';
+import Success from '../Success/Success.jsx';
 
 function App() {
   return (
@@ -47,7 +48,10 @@ function App() {
           />
         </Route>
         <Route exact path="/Review">
-          <Review />
+          <Review nextPage="/Success" />
+        </Route>
+        <Route exact path="/Success">
+          <Success />
         </Route>
       </Router>
     </div>
