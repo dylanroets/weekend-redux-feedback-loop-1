@@ -1,25 +1,25 @@
-//will need useDispatch and useState
+//will need useDispatch, useHistory and useState
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 
 function Feeling({ question, page, nextpage }) {
-  //checking incoming props
-  console.log('Question:', question, 'page:', page, 'nextpage:', nextpage);
-
   //invoking react and redux
   let history = useHistory();
   let dispatch = useDispatch();
+  //using state to capture the text input in the comments page
   const [comment, setComment] = useState('');
 
-  //function to run on click of next in selector components
+  //function onclick of next button in non-text input components
   const runSelectorInput = () => {
+    //this nabs the value that is selected in drop down
     let value = document.getElementById('input-selector').value;
-    console.log('Answer value:', value);
+    //Verify proper input
     if (value === '') {
       alert('You must enter an answer.');
     } else {
       dispatch({
+        //object is seperated out into two properties and values to easily create data on dispatch
         type: 'MAKE_COMMENT',
         payload: { page: page, value: value },
       });
@@ -28,7 +28,7 @@ function Feeling({ question, page, nextpage }) {
   };
   //function running commment input
   const runCommentInput = () => {
-    console.log('inCommentInput:', comment);
+    //uses same structure, but grabs from useState of comment
     dispatch({
       type: 'MAKE_COMMENT',
       payload: { page: page, value: comment },
@@ -47,7 +47,6 @@ function Feeling({ question, page, nextpage }) {
             type="text"
             placeholder="Comment"
             onChange={(event) => {
-              console.log(event.target.value);
               setComment(event.target.value);
             }}
           ></input>
