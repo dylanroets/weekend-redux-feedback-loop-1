@@ -38,6 +38,13 @@ function App() {
             nextpage="/Comments"
           />
         </Route>
+        <Route exact path="/Comments">
+          <Feeling
+            question="Any comments you want to leave?"
+            page="Comments?"
+            nextpage="/Review"
+          />
+        </Route>
       </Router>
     </div>
   );

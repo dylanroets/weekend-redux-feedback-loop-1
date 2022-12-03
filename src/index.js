@@ -6,17 +6,19 @@ import registerServiceWorker from './registerServiceWorker';
 //will need createStore and combineReducers from redux
 import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
+import logger from 'redux-logger';
 
+const middleware = [logger];
 //TODO: Make a reducer called 'MAKE_COMMENT', starts as {}
 const comment = (state = {}, action) => {
   //console.log('in comment reducer:', action.payload);
   if (action.type === 'MAKE_COMMENT') {
-    if (action.payload.page === 'Feeling?') {
-      let newState = { ...state, feeling: action.payload.value };
-      console.log(state);
-      console.log(newState);
-      return newState;
-    }
+    // if (action.payload.page === 'Feeling?') {
+    let newState = { ...state, [action.payload.page]: action.payload.value };
+    console.log(state);
+    console.log(newState);
+    return newState;
+    // }
   }
   //Idea is each action is going to add another property to the object so can be controlled by one
   return state;

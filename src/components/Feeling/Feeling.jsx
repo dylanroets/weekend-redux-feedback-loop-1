@@ -32,15 +32,21 @@ function Feeling({ question, page, nextpage }) {
   return (
     <div>
       <h1>{question} </h1>
-      <label htmlFor="input-selector">{page}</label>
-      <select name="feedback" id="input-selector">
-        <option value="">--Select an option--</option>
-        <option value="5">5</option>
-        <option value="4">4</option>
-        <option value="3">3</option>
-        <option value="2">2</option>
-        <option value="1">1</option>
-      </select>
+      {page === 'Comments?' ? (
+        <input type="text" placeholder="Comment"></input>
+      ) : (
+        <div>
+          <label htmlFor="input-selector">{page}</label>
+          <select name="feedback" id="input-selector">
+            <option value="">--Select an option--</option>
+            <option value="5">5</option>
+            <option value="4">4</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">1</option>
+          </select>
+        </div>
+      )}
       <button onClick={runInput}>Next</button>
     </div>
   );
