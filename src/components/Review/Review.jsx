@@ -1,9 +1,11 @@
 //import useSElector and axios
 import { useSelector } from 'react-redux';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
-function Review() {
+function Review({ nextPage }) {
   const reduxStore = useSelector((store) => store.comment);
+  const history = useHistory();
   console.log('selecting:', reduxStore);
   console.log(reduxStore.Comments);
 
@@ -15,7 +17,10 @@ function Review() {
     console.log('Posting data');
     axios
       .post('/Feedback', { data: reduxStore })
-      .then(console.log('Data Posted'))
+      .then(() => {
+        console.log('Data Posted');
+        history.push(nextPage);
+      })
       .catch((error) => alert(error));
   };
   //Alert for completed entry
