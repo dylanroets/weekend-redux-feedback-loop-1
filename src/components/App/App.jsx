@@ -4,7 +4,8 @@ import './App.css';
 import { HashRouter as Router, Route } from 'react-router-dom';
 
 import Home from '../Home/Home.jsx';
-import Feeling from '../Feeling/Feeling.jsx';
+import Feeling from '../Questions/Questions.jsx';
+import Review from '../Review/Review.jsx';
 
 function App() {
   return (
@@ -20,30 +21,33 @@ function App() {
         <Route exact path="/Feeling">
           <Feeling
             question="How are you feeling today?"
-            page="Feeling?"
+            page="Feeling"
             nextpage="/Supported"
           />
         </Route>
         <Route exact path="/Supported">
           <Feeling
             question="How well are you being supported?"
-            page="Supported?"
+            page="Supported"
             nextpage="/Understanding"
           />
         </Route>
         <Route exact path="/Understanding">
           <Feeling
             question="How well are you understanding the content?"
-            page="Understanding?"
+            page="Understanding"
             nextpage="/Comments"
           />
         </Route>
         <Route exact path="/Comments">
           <Feeling
             question="Any comments you want to leave?"
-            page="Comments?"
+            page="Comments"
             nextpage="/Review"
           />
+        </Route>
+        <Route exact path="/Review">
+          <Review />
         </Route>
       </Router>
     </div>
