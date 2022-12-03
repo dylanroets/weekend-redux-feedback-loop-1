@@ -2,6 +2,8 @@
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
+//import edit component for review of answers
+import FeedbackEdit from '../FeedbackEdit/FeedbackEdit.jsx';
 
 function Review({ nextPage }) {
   const reduxStore = useSelector((store) => store.comment);
