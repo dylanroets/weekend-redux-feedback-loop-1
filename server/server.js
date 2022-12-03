@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 5000;
-
+//need for post to occur in server and not in router
 let pool = require('./modules/pool.js');
 
 /** ---------- MIDDLEWARE ---------- **/
