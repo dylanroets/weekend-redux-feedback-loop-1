@@ -21,7 +21,7 @@ app.post('/Feedback', (req, res) => {
   VALUES 
   ($1, $2, $3, $4)`;
   let feeling = incomingData.Feeling;
-  let supported = incomingData.Supported;
+  let supported = incomingData.Support;
   let understanding = incomingData.Understanding;
   let comments = incomingData.Comments;
   pool
