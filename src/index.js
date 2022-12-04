@@ -18,6 +18,8 @@ const comment = (state = {}, action) => {
     console.log(state);
     console.log(newState);
     return newState;
+  } else if (action.type === 'CLEAR_STORE') {
+    return {};
   }
   // ^^Idea is each action adds another property to the object
   //this allows for easy editing

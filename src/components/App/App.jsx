@@ -28,13 +28,13 @@ function App() {
           <Questions
             question="How are you feeling today?"
             page="Feeling"
-            nextpage="/Supported"
+            nextpage="/Support"
           />
         </Route>
-        <Route exact path="/Supported">
+        <Route exact path="/Support">
           <Questions
             question="How well are you being supported?"
-            page="Supported"
+            page="Support"
             nextpage="/Understanding"
           />
         </Route>

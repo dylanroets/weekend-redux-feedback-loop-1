@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
+import './FeedbackEdit.css';
+
 function FeedbackEdit({ answer, value }) {
   console.log(answer);
   const dispatch = useDispatch();
@@ -23,16 +25,20 @@ function FeedbackEdit({ answer, value }) {
   };
   const updateEntry = () => {
     let numInput = document.getElementById('input-selector').value;
-    dispatch({
-      type: 'MAKE_COMMENT',
-      payload: { page: answer, value: numInput },
-    });
-    setEditBtn(!editBtn);
+    if (numInput === '') {
+      alert('You must enter a new answer.');
+    } else {
+      dispatch({
+        type: 'MAKE_COMMENT',
+        payload: { page: answer, value: numInput },
+      });
+      setEditBtn(!editBtn);
+    }
   };
   return (
     <>
       {!editBtn && (
-        <div>
+        <div className="answers">
           <p>
             {' '}
             {answer} : {value}
@@ -41,7 +47,8 @@ function FeedbackEdit({ answer, value }) {
         </div>
       )}
       {editBtn && answer === 'Comments' && (
-        <div>
+        <div className="answers inputs">
+          <p>{answer}:</p>
           <input
             type="text"
             placeholder={value}
@@ -51,8 +58,8 @@ function FeedbackEdit({ answer, value }) {
         </div>
       )}
       {editBtn && answer !== 'Comments' && (
-        <div>
-          <label htmlFor="input-selector">{answer}?</label>
+        <div className="answers inputs">
+          <label htmlFor="input-selector">{answer}:</label>
           <select name="feedback" id="input-selector">
             <option value="">--Select an option--</option>
             <option value="5">5</option>

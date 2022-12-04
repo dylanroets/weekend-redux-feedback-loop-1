@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 
+import './Questions.css';
+
 function Feeling({ question, page, nextpage }) {
   //invoking react and redux
   let history = useHistory();
@@ -37,33 +39,36 @@ function Feeling({ question, page, nextpage }) {
   };
 
   return (
-    <div>
+    <div className="questions">
       <h1>{question} </h1>
       {page === 'Comments' ? (
-        <div>
-          <label htmlFor="comment-input">Comments?</label>
-          <input
-            id="comment-input"
-            type="text"
-            placeholder="Comment"
-            onChange={(event) => {
-              setComment(event.target.value);
-            }}
-          ></input>
+        <div className="input-group">
+          <div className="input-selector">
+            <label htmlFor="comment-input">Comments</label>
+            <input
+              id="comment-input"
+              type="text"
+              placeholder="Comment"
+              onChange={(event) => {
+                setComment(event.target.value);
+              }}
+            ></input>
+          </div>
           <button onClick={runCommentInput}>Next</button>
         </div>
       ) : (
-        <div>
-          <label htmlFor="input-selector">{page}?</label>
-          <select name="feedback" id="input-selector">
-            <option value="">--Select an option--</option>
-            <option value="5">5</option>
-            <option value="4">4</option>
-            <option value="3">3</option>
-            <option value="2">2</option>
-            <option value="1">1</option>
-          </select>
-
+        <div className="input-group">
+          <div className="input-selector">
+            <label htmlFor="input-selector">{page}?</label>
+            <select name="feedback" id="input-selector">
+              <option value="">--Select an option--</option>
+              <option value="5">5</option>
+              <option value="4">4</option>
+              <option value="3">3</option>
+              <option value="2">2</option>
+              <option value="1">1</option>
+            </select>
+          </div>
           <button onClick={runSelectorInput}>Next</button>
         </div>
       )}
