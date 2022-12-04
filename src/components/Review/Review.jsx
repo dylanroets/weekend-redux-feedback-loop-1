@@ -25,10 +25,10 @@ function Review({ nextPage }) {
   return (
     <div>
       <h2>Review your Feedback</h2>
-      <p>Feeling: {reduxStore.Feeling}</p>
-      <p>Understanding: {reduxStore.Understanding}</p>
-      <p>Support: {reduxStore.Supported}</p>
-      <p>Comments: {reduxStore.Comments}</p>
+      <FeedbackEdit answer="Feeling" value={reduxStore.Feeling} />
+      <FeedbackEdit answer="Understanding" value={reduxStore.Understanding} />
+      <FeedbackEdit answer="Support" value={reduxStore.Supported} />
+      <FeedbackEdit answer="Comments" value={reduxStore.Comments} />
       <button onClick={postData}> Submit</button>
     </div>
   );
